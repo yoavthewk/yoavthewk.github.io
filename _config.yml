@@ -8,9 +8,6 @@ header_pages:
   - about.md
   - contact.md
 
-include:
-  - assets/css/codeblock.css
-
 style: dark
 
 footer: 'follow on <a href="https://twitter.com/">twitter</a>'
