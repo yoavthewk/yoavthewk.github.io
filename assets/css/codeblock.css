@@ -1,18 +1,19 @@
 /* Distinguish fenced code blocks */
 pre, code {
-  background-color: #1e1e1e !important; /* darker than page background */
-  color: #e0e0e0;
+  background-color: #f5f5f5 !important; /* darker than page background */
+  color: #222 !important;
   border-radius: 8px;
   padding: 0.8em 1em;
   display: block;
   overflow-x: auto;
-  font-family: "Fira Code", monospace;
+  font-family: "Fira Code", "Courier New", monospace;
   font-size: 0.95em;
 }
 
-/* Inline code (inside text, not blocks) */
+/* Inline code (inside paragraphs/lists) */
 p code, li code {
-  background-color: #2c2c2c;
+  background-color: #e8e8e8;
   padding: 0.2em 0.4em;
   border-radius: 4px;
+  color: #111;
 }
