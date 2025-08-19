@@ -5,8 +5,8 @@ url: "https://yoavthewk.github.io"
 
 header_pages:
   - index.md
-  - _pages/about.md
-  - _pages/contact.md
+  - about.md
+  - contact.md
 
 style: dark
 
