@@ -4,7 +4,7 @@ baseurl: "/"
 url: "https://yoavthewk.github.io"
 
 header_pages:
-  - _pages/index.md
+  - index.md
   - _pages/about.md
   - _pages/contact.md
 
