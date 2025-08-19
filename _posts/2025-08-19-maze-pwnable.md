@@ -76,47 +76,47 @@ Knowing the nature of the CTF, and admittedly trying, I was quickly met with the
 Upon first look, I quickly noticed it lacks symbols. But, it's a small binary, so a little bit of string matching and logic can get you a long way.
 
 For this challenge though, I figured I don't need much. So I mapped main as so:
-![](../assets/images/writeups/maze/image.png)
+![](/assets/images/writeups/maze/image.png)
 
 We know something interesting happens at level 20, so let's take a look at the function at the end:
-![](../assets/images/writeups/maze/image-1.png)
+![](/assets/images/writeups/maze/image-1.png)
 
 First thing that pops to mind is gets for a small buffer. 
 
 Let's checksec:
-![](../assets/images/writeups/maze/image-2.png)
+![](/assets/images/writeups/maze/image-2.png)
 
 Too ez.
 
 Simply get to level 20 and you get free RIP control. 
 
 But, how do we get to level 20? I started looking at the code of the game itself, at a high level look, and noticed a weird thing:
-![](../assets/images/writeups/maze/image-3.png)
-![](../assets/images/writeups/maze/image-4.png)
+![](/assets/images/writeups/maze/image-3.png)
+![](/assets/images/writeups/maze/image-4.png)
 
 Hm. This seems interesting, from this code it seems as if we need to reach level 5 at least, and then reach x = 8, y = 14, and input this secret key in order to overwrite some random byte.
 
 But, is this random?
 
 If we use logic to deduce where our maze array is stored:
-![](../assets/images/writeups/maze/image-6.png)
+![](/assets/images/writeups/maze/image-6.png)
 
 This byte seems to be right after the map in memory:
-![](../assets/images/writeups/maze/image-5.png)
+![](/assets/images/writeups/maze/image-5.png)
 
 But, how does this help us? Well, let's do some math.
 
 We know, from the offsetting used in the picture above, that the map is 16x16 bytes, or, 256 bytes overall. But, the map array is 0xf8, aka 248, meaning, we're writing a '0' to the map somewhere! 
 
 If we calculate the offset (which is 248), we can deduce it is x = 8, y = 15. Meaning, we're basically deleting this rail here:
-![](../assets/images/writeups/maze/image-7.png)
+![](/assets/images/writeups/maze/image-7.png)
 
 The first thing that pops to mind is that we can "escape" the maze and overwrite random values in the area. 
 
 If we focus on our objective, we need a way to reach a higher level than we actually reached. So, we would hope the level_counter is somewhere in the area.
 
 Luckily for us, it is:
-![](../assets/images/writeups/maze/image-8.png)
+![](/assets/images/writeups/maze/image-8.png)
 
 So, all we need to do is overwrite it and then beat level 5 in order for the new level counter to take effect!
 
@@ -167,18 +167,18 @@ io.send(overwrite_levels)
 ```
 
 And now:
-![](../assets/images/writeups/maze/image-9.png)
+![](/assets/images/writeups/maze/image-9.png)
 
 ez, we got a gets() call. 
 Now, we can jump everywhere, but without a libc leak, etc., it's a chore. 
 
 Luckily for us, if we look at the strings, we'll see this:
 
-![](../assets/images/writeups/maze/image-10.png)
+![](/assets/images/writeups/maze/image-10.png)
 
 This most likely means that we have some kind of win function! 
 If we actually go through the function, we can see this:
-![](../assets/images/writeups/maze/image-11.png)
+![](/assets/images/writeups/maze/image-11.png)
 
 Let's just jump there!
 
