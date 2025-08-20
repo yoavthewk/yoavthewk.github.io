@@ -1,4 +1,4 @@
-# Maze
+# Maze - pwnable.kr
 
 This is the second challenge of the Grotesque category I've tackled on these last two days, and it seems interesting. I highly encourage playing it, and not reading this writeup instead. Only refer to it as an alternative solution.
 
