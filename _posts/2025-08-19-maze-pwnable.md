@@ -3,7 +3,7 @@
 This is the second challenge of the Grotesque category I've tackled on these last two days, and it seems interesting. I highly encourage playing it, and not reading this writeup instead. Only refer to it as an alternative solution.
 
 Let's take a quick look at what happens when we run the binary:
-```bash
+```shell
 ~/pwnable/maze$ ./maze
 PLEASE BREAK OUT OF THIS MAZE
 GO TO [] IN ORDER TO EXIT THE MAZE
@@ -13,7 +13,7 @@ PRESS ANY KEY TO START THE GAME
 ```
 
 Okay, so it seems as if a certain thing happens when we reach level 20.. Let's keep that in mind and look at the game:
-```bash
+```shell
 ################################
 ##:D##          ##        ##  ##
 ##  ####  ####  ##  ##  ####  ##
