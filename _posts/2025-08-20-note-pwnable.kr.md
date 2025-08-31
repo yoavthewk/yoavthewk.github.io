@@ -267,7 +267,7 @@ MAP_FIXED
               discussion of this flag in NOTES!
 ```
 
-`If the memory region specified by addr and length overlaps pages of any existing mapping(s), then the overlapped part of the existing mapping(s) will be discarded.  If the specified address cannot be used, mmap() will fail.`  This sounds very vulnerable. That means, that contrary to the code of `mmap_s` that seems like every allocated chunk will simply be left as is, it actually discards the overlapped chunk (which will be the entire chunk)! This is an extremely strong primitive; let's plan our attack.
+"If the memory region specified by addr and length overlaps pages of any existing mapping(s), then the overlapped part of the existing mapping(s) will be discarded.  If the specified address cannot be used, mmap() will fail."  This sounds very vulnerable. That means, that contrary to the code of `mmap_s` that seems like every allocated chunk will simply be left as is, it actually discards the overlapped chunk (which will be the entire chunk)! This is an extremely strong primitive; let's plan our attack.
 
 ## Using Our Primitive
 
