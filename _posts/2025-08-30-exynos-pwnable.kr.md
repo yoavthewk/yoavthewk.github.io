@@ -265,7 +265,8 @@ We simply need to find its physical address using its offset from the kernel tex
 / $ cat /proc/kallsyms | grep nsown_capable
 00000000 T nsown_capable
 ```
-... Or so we thought. We're non-root, so we do not have access to the `/proc/kallsyms` file, and we have no idea where the symbol resides. That stumps us, and we need a way to know where the symbol is.
+
+... Or so we thought. We're non-root, so we do not have access to the `/proc/kallsyms` file (or, rather, to the addresses), and we have no idea where the symbol resides. That stumps us, and we need a way to know where the symbol is.
 
 Now, we face a few options:
 1. We dump the whole kernel to our host machine and examine it like so to find the offset.
