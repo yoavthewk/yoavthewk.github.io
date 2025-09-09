@@ -261,9 +261,9 @@ proc_entry = (proc_dir_entry *)create_proc_entry(0, 438);
 procfile = proc_entry;
 if ( proc_entry )
 {
-proc_entry->read_proc = (read_proc_t *)kread;
-proc_entry->write_proc = (write_proc_t *)kwrite;
-return 0;
+    proc_entry->read_proc = (read_proc_t *)kread;
+    proc_entry->write_proc = (write_proc_t *)kwrite;
+    return 0;
 }
 ```
 
