@@ -369,7 +369,7 @@ Now, after its done that, it checks the given `op`:
 If the required operation is to add to the `kcrc` table, it iterates over the user given `ptr` (which is not checked by the way) and reads `l` bytes from it calculating the CRC on the reads. It then writes the negated result into the `kcrc[g_idx]` (unfortunately, it seems as if the `g_idx` is protected from overflowing there).
 
 The other `op` is `0xDE1`:
-```C
+```c
 if ( op != 0xDE1 )
     return 0;
 v5 = g_idx;
