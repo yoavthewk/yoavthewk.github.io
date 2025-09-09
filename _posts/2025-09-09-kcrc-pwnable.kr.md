@@ -242,7 +242,7 @@ For `kread`:
  data  - client-specific pointer
  ```
 
-And for `kwrite:
+And for `kwrite`:
 ```
 file   - struct file pointer for the proc entry
 buffer - user-space buffer containing data to write
